@@ -7,6 +7,10 @@ export type StepsType = {
 export type PersonalInfoTypes = {
   name: string;
   email: string;
-  phone: number;
+  phone: number | null;
 };
 
+export type SelectPlanTypes = {
+  plan: "Arcade" | "Advanced" | "Pro";
+  billing: "Monthly" | "Yearly";
+};

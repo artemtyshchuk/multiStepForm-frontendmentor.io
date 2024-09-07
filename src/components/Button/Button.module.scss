@@ -2,7 +2,6 @@
   margin-top: 92px;
   padding: 14px 24px;
   border-radius: 8px;
-  background: var(--Denim, #022959);
 
   color: var(--White, #fff);
   font-family: Ubuntu;
@@ -12,6 +11,15 @@
   line-height: normal;
   border: none;
   cursor: pointer;
+
+  &__nextPage {
+    background: var(--Denim, #022959);
+  }
+
+  &__backPage {
+    background-color: transparent;
+    color: var(--Grey, #9699aa);
+  }
 }
 
 @media (max-width: 576px) {

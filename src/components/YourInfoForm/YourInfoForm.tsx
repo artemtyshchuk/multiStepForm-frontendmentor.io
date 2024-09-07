@@ -1,21 +1,33 @@
 import { useForm } from "react-hook-form";
-import styles from "./YourInfo.module.scss";
+import styles from "./YourInfoForm.module.scss";
 import { PersonalInfoTypes } from "types/types";
 import { Button } from "components/Button";
+import { useAppDispatch, useAppSelector } from "redux-hooks";
+import { setActiveStep } from "../../redux/activeStep-slice";
+import { setPersonalInfo } from "../../redux/forms-slice";
 
-interface YourInfoProps {}
+interface YourInfoFormProps {}
 
-export const YourInfo = ({}: YourInfoProps) => {
+export const YourInfoForm = ({}: YourInfoFormProps) => {
+  const personalInfo = useAppSelector(
+    (state) => state.setPersonalData.personalInfo
+  );
+
   const { register, formState, handleSubmit } = useForm<PersonalInfoTypes>({
     mode: "onChange",
+    defaultValues: personalInfo,
   });
+
+  const activeStep = useAppSelector((state) => state.activeStep);
+  const dispatch = useAppDispatch();
 
   const nameInputError = formState.errors["name"]?.message;
   const emailInputError = formState.errors["email"]?.message;
   const phoneInputError = formState.errors["phone"]?.message;
 
   const onSubmit = (data: PersonalInfoTypes) => {
-    console.log(data);
+    dispatch(setPersonalInfo(data));
+    dispatch(setActiveStep(activeStep + 1));
   };
 
   return (
@@ -42,6 +54,7 @@ export const YourInfo = ({}: YourInfoProps) => {
           </div>
           <input
             type="text"
+            autoComplete="off"
             className={`${styles.input} ${
               nameInputError && styles.input__error
             }`}
@@ -64,6 +77,7 @@ export const YourInfo = ({}: YourInfoProps) => {
           </div>
           <input
             type="text"
+            autoComplete="off"
             className={`${styles.input} ${
               emailInputError && styles.input__error
             }`}
@@ -86,6 +100,7 @@ export const YourInfo = ({}: YourInfoProps) => {
           </div>
           <input
             type="number"
+            autoComplete="off"
             className={`${styles.input} ${
               phoneInputError && styles.input__error
             }`}
@@ -93,9 +108,8 @@ export const YourInfo = ({}: YourInfoProps) => {
             {...register("phone", { required: "This field is required" })}
           />
         </div>
-
         <div className={styles.buttonContainer}>
-          <Button button="Next Step" />
+          <Button button="nextPage" buttonText="Next Step" type="submit" />
         </div>
       </form>
     </div>

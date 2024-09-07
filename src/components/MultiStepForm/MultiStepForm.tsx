@@ -1,19 +1,16 @@
 import { useAppSelector } from "redux-hooks";
 import { StepsBar } from "../StepsBar";
 import styles from "./MultiStepForm.module.scss";
-import { YourInfo } from "components/YourInfo";
+import { YourInfoForm } from "components/YourInfoForm";
 import { useEffect, useState } from "react";
-import { Button } from "components/Button";
+import { SelectPlanForm } from "components/SelectPlanForm";
 
-interface MultiStepFormProps {}
-
-export const MultiStepForm = ({}: MultiStepFormProps) => {
+export const MultiStepForm = () => {
   const activeStep = useAppSelector((state) => state.activeStep);
 
   const [screenSize, setScreenSize] = useState({
     mobileScreen: window.matchMedia("(max-width: 576px)").matches,
   });
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,9 +26,9 @@ export const MultiStepForm = ({}: MultiStepFormProps) => {
   const renderStepForm = () => {
     switch (activeStep) {
       case 1:
-        return <YourInfo />;
-      // case 2:
-      //   return <SelectPlanForm />;
+        return <YourInfoForm />;
+      case 2:
+        return <SelectPlanForm />;
       // case 3:
       //   return <AddOnsForm />;
       // case 4:
@@ -46,12 +43,6 @@ export const MultiStepForm = ({}: MultiStepFormProps) => {
       </div>
 
       <div className={styles.formsContainer}>{renderStepForm()}</div>
-
-      {screenSize.mobileScreen && (
-        <div className={styles.buttonContainer}>
-          <Button button="Next Step" />
-        </div>
-      )}
     </div>
   );
 };
