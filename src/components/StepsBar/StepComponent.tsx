@@ -48,10 +48,10 @@ export const StepComponent = (props: StepComponentProps) => {
         </div>
         <div className={styles.textContainer}>
           <p className={styles.stepTitle}>
-            {screenSize.mobileScreen ? null : title}
+            {screenSize.mobileScreen ? null : subTitle}
           </p>
           <p className={styles.stepSubTitle}>
-            {screenSize.mobileScreen ? null : subTitle}
+            {screenSize.mobileScreen ? null : title}
           </p>
         </div>
       </div>

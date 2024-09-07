@@ -92,4 +92,17 @@
     margin-bottom: 31px;
     cursor: pointer;
   }
+
+  .stepNumberWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    &__active {
+      background-color: #bee2fd;
+    }
+  }
 }

@@ -70,7 +70,9 @@
 }
 
 .input {
-  width: 94%;
+  box-sizing: border-box;
+
+  width: 100%;
   padding: 15px 16px;
   border-radius: 8px;
   border: 1px solid var(--Purple, #483eff);
@@ -101,25 +103,17 @@
     background-color: inherit;
   }
   .yourInfo {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 32px 24px;
-    position: relative;
-    top: -6%;
+    padding: 0;
   }
-
-  .input {
-    width: 86%;
-
-    color: var(--Grey, #9699aa);
-    font-family: Ubuntu;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
-
   .buttonContainer {
-    display: none;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
   }
 }
