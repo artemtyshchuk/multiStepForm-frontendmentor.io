@@ -1,0 +1,95 @@
+.stepsBar {
+  padding: 40px 32px;
+  background-image: url("../../assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 1fr;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.stepContainer {
+  display: grid;
+  grid-template-columns: 33px 1fr;
+  column-gap: 16px;
+  margin-bottom: 31px;
+  cursor: pointer;
+}
+
+.stepNumberWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  border: 1px solid white;
+  border-radius: 50%;
+  &__active {
+    background-color: #bee2fd;
+  }
+}
+
+.number {
+  margin: 0;
+  color: var(--White, #fff);
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  &__active {
+    color: #022959;
+  }
+}
+
+.stepTitle {
+  margin: 0;
+  color: var(--Light-Blue, #abbcff);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Body (S) */
+  font-family: Ubuntu;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.stepSubTitle {
+  margin: 0;
+  padding-top: 4px;
+  color: var(--White, #fff);
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 576px) {
+  .stepsBar {
+    padding: 40px 32px;
+    background-image: url("../../assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+    border-radius: 0;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0;
+  }
+
+  .stepContainer {
+    display: block;
+    margin-bottom: 31px;
+    cursor: pointer;
+  }
+}

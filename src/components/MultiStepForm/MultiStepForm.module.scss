@@ -1,0 +1,54 @@
+.multiStepForm {
+  display: grid;
+  grid-template-columns: 24.7% 50%;
+  column-gap: 100px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+  //769
+
+  .multiStepForm {
+    display: grid;
+    grid-template-columns: 37% 50%;
+    column-gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  //577
+  .multiStepForm {
+    display: grid;
+    grid-template-columns: 40% 50%;
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .multiStepForm {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 18% auto 10%;
+    padding: 0;
+    background-color: #fff;
+    border-radius: 15px;
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  .formsContainer {
+    padding: 0 16px;
+    background-color: #eff5ff;
+  }
+
+  .buttonContainer {
+    background-color: #fff;
+    padding: 16px;
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+    align-self: end;
+  }
+}

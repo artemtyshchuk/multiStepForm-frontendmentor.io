@@ -1,4 +1,38 @@
 .container {
-  width: 60%;
-  margin: 105px auto;
+  width: 50%;
+  margin: 155px auto;
+}
+
+@media (max-width: 1439px) {
+  //1201
+  .container {
+    width: 80%;
+    margin: 155px auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  //993
+  .container {
+    width: 90%;
+    margin: 35px auto;
+  }
+}
+
+@media (max-width: 992px) {
+  //769
+  .container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  //577
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
 }

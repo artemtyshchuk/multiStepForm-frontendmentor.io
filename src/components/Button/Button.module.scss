@@ -1,0 +1,21 @@
+.button {
+  margin-top: 92px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  background: var(--Denim, #022959);
+
+  color: var(--White, #fff);
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .button {
+    margin-top: 0;
+  }
+}

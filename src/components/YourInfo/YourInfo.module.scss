@@ -1,0 +1,125 @@
+.yourInfo {
+  padding-top: 40px;
+}
+
+.title {
+  margin: 0;
+  color: var(--Denim, #022959);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Heading */
+  font-family: Ubuntu;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.subTitle {
+  margin: 0;
+  padding-top: 11px;
+  color: var(--Grey, #9699aa);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Body (L) */
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 156.25% */
+}
+
+.inputsContainer {
+  margin-top: 35px;
+}
+
+.emailInputContainer {
+  margin-top: 24px;
+}
+.phoneInputContainer {
+  margin-top: 24px;
+}
+
+.inputLabelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputLabel {
+  color: var(--Denim, #022959);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Body (M) */
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.validationTextError {
+  margin: 0;
+  color: var(--Red-Errors, #ee374a);
+  text-align: right;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.input {
+  width: 94%;
+  padding: 15px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--Purple, #483eff);
+  outline: none;
+
+  margin-top: 8px;
+  color: var(--Denim, #022959);
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  transition: 0.3s;
+
+  &__error {
+    border: 1px solid var(--Red-Errors, #ee374a);
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 576px) {
+  .stepsBarContainer {
+    background-color: inherit;
+  }
+  .yourInfo {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 32px 24px;
+    position: relative;
+    top: -6%;
+  }
+
+  .input {
+    width: 86%;
+
+    color: var(--Grey, #9699aa);
+    font-family: Ubuntu;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .buttonContainer {
+    display: none;
+  }
+}
