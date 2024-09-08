@@ -1,7 +1,16 @@
-
 import styles from "./SelectPlanForm.module.scss";
 import { motion } from "framer-motion";
 
+interface PlanOptionProps {
+  icon: React.ElementType;
+  planName: string;
+  planValue: string;
+  planPrice: string;
+  isYearly: boolean;
+  discount: string;
+  register: any;
+  selectedPlan: string;
+}
 
 export const PlanOption = ({
   icon: Icon,
@@ -12,16 +21,7 @@ export const PlanOption = ({
   discount,
   register,
   selectedPlan,
-}: {
-  icon: React.ElementType;
-  planName: string;
-  planValue: string;
-  planPrice: string;
-  isYearly: boolean;
-  discount: string;
-  register: any;
-  selectedPlan: string;
-}) => (
+}: PlanOptionProps) => (
   <label
     className={`${styles.planContainer} ${
       selectedPlan === planValue && styles.planContainer__active

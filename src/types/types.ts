@@ -14,3 +14,7 @@ export type SelectPlanTypes = {
   plan: "Arcade" | "Advanced" | "Pro";
   billing: "Monthly" | "Yearly";
 };
+
+export type AddOnsTypes = {
+  addOnsTitles: string[];
+};
