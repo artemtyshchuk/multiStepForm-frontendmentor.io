@@ -4,6 +4,7 @@ import styles from "./MultiStepForm.module.scss";
 import { YourInfoForm } from "components/YourInfoForm";
 import { useEffect, useState } from "react";
 import { SelectPlanForm } from "components/SelectPlanForm";
+import { AddOnsForm } from "components/AddOnsForm";
 
 export const MultiStepForm = () => {
   const activeStep = useAppSelector((state) => state.activeStep);
@@ -29,8 +30,8 @@ export const MultiStepForm = () => {
         return <YourInfoForm />;
       case 2:
         return <SelectPlanForm />;
-      // case 3:
-      //   return <AddOnsForm />;
+      case 3:
+        return <AddOnsForm />;
       // case 4:
       //   return <SummaryForm />;
     }

@@ -5,10 +5,10 @@ import { ReactComponent as ArcadeIcon } from "assets/images/icon-arcade.svg";
 import { ReactComponent as AdvancedIcon } from "assets/images/icon-advanced.svg";
 import { ReactComponent as ProIcon } from "assets/images/icon-pro.svg";
 import { Button } from "components/Button";
-import { motion } from "framer-motion";
 import { useAppDispatch, useAppSelector } from "redux-hooks";
 import { setSelectedPlan } from "../../redux/forms-slice";
 import { setActiveStep } from "../../redux/activeStep-slice";
+import { PlanOption } from "./PlanOption";
 
 export const SelectPlanForm = () => {
   const selectedPlan = useAppSelector(
@@ -45,7 +45,6 @@ export const SelectPlanForm = () => {
   };
 
   const handleBack = () => {
-    console.log("handleBack");
     dispatch(setActiveStep(activeStep - 1));
   };
 
@@ -56,105 +55,36 @@ export const SelectPlanForm = () => {
         You have the option of monthly or yearly billing.
       </p>
       <div className={styles.planInputsContainer}>
-        {/* plan arcade */}
-        <label
-          className={`${styles.planContainer} ${
-            planWatcher === "Arcade" && styles.planContainer__active
-          }`}
-        >
-          <input
-            className={styles.planInput}
-            type="radio"
-            value="Arcade"
-            {...register("plan", {
-              required: "Plan is required",
-            })}
-          />
-          <ArcadeIcon />
-          <div className={styles.planInfoContainer}>
-            <p className={styles.planName}>Arcade</p>
-            <p className={styles.planPrice}>{isYearly ? "$90/yr" : "$9/mo"}</p>
-            <motion.p
-              className={styles.discount}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isYearly ? 1 : 0,
-                height: isYearly ? "auto" : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              2 months free
-            </motion.p>
-          </div>
-        </label>
-
-        {/* plan advanced */}
-        <label
-          className={`${styles.planContainer} ${
-            planWatcher === "Advanced" && styles.planContainer__active
-          }`}
-        >
-          <input
-            className={styles.planInput}
-            type="radio"
-            value="Advanced"
-            {...register("plan", {
-              required: "Plan is required",
-            })}
-          />
-          <AdvancedIcon />
-          <div className={styles.planInfoContainer}>
-            <p className={styles.planName}>Advanced</p>
-            <p className={styles.planPrice}>
-              {isYearly ? "$120/yr" : "$12/mo"}
-            </p>
-            <motion.p
-              className={styles.discount}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isYearly ? 1 : 0,
-                height: isYearly ? "auto" : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              2 months free
-            </motion.p>
-          </div>
-        </label>
-
-        {/* plan pro */}
-        <label
-          className={`${styles.planContainer} ${
-            planWatcher === "Pro" && styles.planContainer__active
-          }`}
-        >
-          <input
-            className={styles.planInput}
-            type="radio"
-            value="Pro"
-            {...register("plan", {
-              required: "Plan is required",
-            })}
-          />
-          <ProIcon />
-          <div className={styles.planInfoContainer}>
-            <p className={styles.planName}>Pro</p>
-            <p className={styles.planPrice}>
-              {isYearly ? "$150/yr" : "$15/mo"}
-            </p>
-            <motion.p
-              className={styles.discount}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isYearly ? 1 : 0,
-                height: isYearly ? "auto" : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              2 months free
-            </motion.p>
-          </div>
-        </label>
+        <PlanOption
+          icon={ArcadeIcon}
+          planName="Arcade"
+          planValue="Arcade"
+          planPrice={isYearly ? "$90/yr" : "$9/mo"}
+          isYearly={isYearly}
+          discount="2 months free"
+          register={register}
+          selectedPlan={planWatcher}
+        />
+        <PlanOption
+          icon={AdvancedIcon}
+          planName="Advanced"
+          planValue="Advanced"
+          planPrice={isYearly ? "$120/yr" : "$12/mo"}
+          isYearly={isYearly}
+          discount="2 months free"
+          register={register}
+          selectedPlan={planWatcher}
+        />
+        <PlanOption
+          icon={ProIcon}
+          planName="Pro"
+          planValue="Pro"
+          planPrice={isYearly ? "$150/yr" : "$15/mo"}
+          isYearly={isYearly}
+          discount="2 months free"
+          register={register}
+          selectedPlan={planWatcher}
+        />
       </div>
       <div>
         {planInputError && <p className={styles.error}>{planInputError}</p>}
