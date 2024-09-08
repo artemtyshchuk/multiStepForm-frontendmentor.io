@@ -1,1 +1,134 @@
-.addOnsForm {}
+.addOnsForm {
+  padding-top: 40px;
+}
+
+.title {
+  margin: 0;
+  color: var(--Denim, #022959);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Heading */
+  font-family: Ubuntu;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.subTitle {
+  margin: 0;
+  padding-top: 11px;
+  color: var(--Grey, #9699aa);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Body (L) */
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 156.25% */
+}
+
+.addOnsContainer {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+}
+
+.addOnsOptionContainer {
+  display: grid;
+  grid-template-columns: 20px auto auto;
+  column-gap: 24px;
+  align-items: center;
+
+  padding: 18px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--Border-Color, #d6d9e6);
+  background: var(--White, #fff);
+  cursor: pointer;
+  transition: 0.3s;
+  &__active {
+    border: 1px solid var(--Purple, #483eff);
+    background: var(--Very-Light-Grey, #f8f9ff);
+    transition: 0.3s;
+  }
+  &:hover {
+    border: 1px solid var(--Purple, #483eff);
+    transition: 0.3s;
+  }
+}
+
+.addOnsInput {
+  display: none;
+}
+
+.checkboxIconContainer {
+  border-radius: 4px;
+  background: var(--White, #fff);
+  border: 1px solid var(--Border-Color, #d6d9e6);
+
+  &__checked {
+    border: 1px solid var(--Purple, #483eff);
+    background: var(--Very-Light-Grey, #483eff);
+  }
+}
+
+.checkboxIcon {
+  width: 18px;
+  height: 10px;
+}
+
+.addOnsTitle {
+  margin: 0;
+  color: var(--Denim, #022959);
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.addOnsSubTitle {
+  margin: 0;
+  padding-top: 7px;
+  color: var(--Grey, #9699aa);
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.addOnsPrice {
+  color: var(--Purple, #483eff);
+  text-align: right;
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 576px) {
+  .addOnsForm {
+    padding-top: 0;
+  }
+  .buttonsContainer {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+  }
+}

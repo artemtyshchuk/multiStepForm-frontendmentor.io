@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PersonalInfoTypes, SelectPlanTypes } from "types/types";
+import { AddOnsTypes, PersonalInfoTypes, SelectPlanTypes } from "types/types";
 
 type FormState = {
   personalInfo: PersonalInfoTypes;
   selectedPlan: SelectPlanTypes;
+  addOns: AddOnsTypes;
 };
 
 const initialState: FormState = {
@@ -15,6 +16,9 @@ const initialState: FormState = {
   selectedPlan: {
     plan: "Arcade",
     billing: "Monthly",
+  },
+  addOns: {
+    addOnsTitles: [],
   },
 };
 
@@ -28,8 +32,12 @@ const formSlice = createSlice({
     setSelectedPlan: (state, action: PayloadAction<SelectPlanTypes>) => {
       state.selectedPlan = action.payload;
     },
+    setAddOns: (state, payload: PayloadAction<AddOnsTypes>) => {
+      state.addOns.addOnsTitles = payload.payload.addOnsTitles;
+    },
   },
 });
 
-export const { setPersonalInfo, setSelectedPlan } = formSlice.actions;
+export const { setPersonalInfo, setSelectedPlan, setAddOns } =
+  formSlice.actions;
 export const formReducer = formSlice.reducer;
