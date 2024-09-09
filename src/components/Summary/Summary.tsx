@@ -8,7 +8,7 @@ import { ErrorNotification } from "./ErrorNotification";
 
 export const Summary = () => {
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
 
   const dispatch = useAppDispatch();
 
