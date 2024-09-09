@@ -40,7 +40,20 @@ export const SelectPlanForm = () => {
   };
 
   const onSubmit = (data: SelectPlanTypes) => {
-    dispatch(setSelectedPlan(data));
+    const price =
+      data.plan === "Arcade"
+        ? isYearly
+          ? 90
+          : 9
+        : data.plan === "Advanced"
+        ? isYearly
+          ? 120
+          : 12
+        : isYearly
+        ? 150
+        : 15;
+
+    dispatch(setSelectedPlan({ ...data, price }));
     dispatch(setActiveStep(activeStep + 1));
   };
 
