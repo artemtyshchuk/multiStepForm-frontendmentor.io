@@ -6,6 +6,8 @@
   background-color: #fff;
   border-radius: 15px;
   box-sizing: border-box;
+  min-height: 625px;
+  max-height: 625px;
 }
 
 @media (max-width: 992px) {
@@ -33,11 +35,11 @@
     grid-template-columns: 1fr;
     grid-template-rows: 18% auto 10%;
     padding: 0;
-    // margin-bottom: 50px;
     background-color: #eff5ff;
     border-radius: 15px;
     box-sizing: border-box;
     height: 100vh;
+    margin-bottom: 100px;
   }
   .formsContainer {
     border-radius: 10px;

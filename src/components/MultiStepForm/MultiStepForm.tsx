@@ -5,6 +5,7 @@ import { YourInfoForm } from "components/YourInfoForm";
 import { useEffect, useState } from "react";
 import { SelectPlanForm } from "components/SelectPlanForm";
 import { AddOnsForm } from "components/AddOnsForm";
+import { Summary } from "components/Summary";
 
 export const MultiStepForm = () => {
   const activeStep = useAppSelector((state) => state.activeStep);
@@ -32,8 +33,10 @@ export const MultiStepForm = () => {
         return <SelectPlanForm />;
       case 3:
         return <AddOnsForm />;
-      // case 4:
-      //   return <SummaryForm />;
+      case 4:
+        return <Summary />;
+      case 5:
+        return <YourInfoForm />;
     }
   };
 

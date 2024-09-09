@@ -3,7 +3,7 @@ import { ReactComponent as CheckIcon } from "assets/images/icon-checkmark.svg";
 interface AddOnsOptionProps {
   title: string;
   subTitle: string;
-  price: string;
+  price: number;
   register: any;
   checked: boolean;
 }

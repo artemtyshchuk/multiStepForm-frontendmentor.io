@@ -25,13 +25,30 @@ export const AddOnsForm = ({}: AddOnsFormProps) => {
 
   const watcher = watch("addOnsTitles");
 
-  const handleBack = () => {
-    dispatch(setActiveStep(activeStep - 1));
+  const onSubmit = (data: AddOnsTypes) => {
+    const addOnsPrices: { [key: string]: number } = {
+      "Online service": 1,
+      "Larger storage": 2,
+      "Customizable profile": 2,
+    };
+
+    // Здесь мы собираем правильные цены для каждого выбранного add-on
+    const selectedAddOnsPrices = data.addOnsTitles.map(
+      (addOn) => addOnsPrices[addOn]
+    );
+
+    // Отправляем в хранилище правильные данные с названиями add-ons и их ценами
+    dispatch(
+      setAddOns({
+        addOnsTitles: data.addOnsTitles,
+        addOnsPrice: selectedAddOnsPrices,
+      })
+    );
+    dispatch(setActiveStep(activeStep + 1));
   };
 
-  const onSubmit = (data: AddOnsTypes) => {
-    dispatch(setActiveStep(activeStep + 1));
-    dispatch(setAddOns(data));
+  const handleBack = () => {
+    dispatch(setActiveStep(activeStep - 1));
   };
 
   return (
@@ -44,21 +61,21 @@ export const AddOnsForm = ({}: AddOnsFormProps) => {
         <AddOnsOption
           title="Online service"
           subTitle="Access to multiplayer games"
-          price="1"
+          price={1}
           register={register}
           checked={watcher.includes("Online service")}
         />
         <AddOnsOption
           title="Larger storage"
           subTitle="Extra 1TB of cloud save"
-          price="2"
+          price={2}
           register={register}
           checked={watcher.includes("Larger storage")}
         />
         <AddOnsOption
           title="Customizable profile"
           subTitle="Custom theme on your profile"
-          price="2"
+          price={2}
           register={register}
           checked={watcher.includes("Customizable profile")}
         />

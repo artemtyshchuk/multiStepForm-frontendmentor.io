@@ -13,8 +13,10 @@ export type PersonalInfoTypes = {
 export type SelectPlanTypes = {
   plan: "Arcade" | "Advanced" | "Pro";
   billing: "Monthly" | "Yearly";
+  price: number;
 };
 
 export type AddOnsTypes = {
   addOnsTitles: string[];
+  addOnsPrice: number[];
 };

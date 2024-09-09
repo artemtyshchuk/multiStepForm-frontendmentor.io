@@ -16,9 +16,11 @@ const initialState: FormState = {
   selectedPlan: {
     plan: "Arcade",
     billing: "Monthly",
+    price: 9,
   },
   addOns: {
     addOnsTitles: [],
+    addOnsPrice: [],
   },
 };
 
@@ -34,6 +36,7 @@ const formSlice = createSlice({
     },
     setAddOns: (state, payload: PayloadAction<AddOnsTypes>) => {
       state.addOns.addOnsTitles = payload.payload.addOnsTitles;
+      state.addOns.addOnsPrice = payload.payload.addOnsPrice;
     },
   },
 });

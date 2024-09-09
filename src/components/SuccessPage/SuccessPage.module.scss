@@ -1,0 +1,42 @@
+.successPage {
+  margin: 150px 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  padding-top: 32px;
+  margin: 0;
+  color: var(--Denim, #022959);
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Heading */
+  font-family: Ubuntu;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.description {
+  padding-top: 14px;
+  margin: 0;
+  color: var(--Grey, #9699aa);
+  text-align: center;
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Body (L) */
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 156.25% */
+}
+
+@media (max-width: 576px) {
+  .successPage {
+    margin: 70px 0;
+  }
+}
