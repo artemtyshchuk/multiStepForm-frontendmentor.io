@@ -1,5 +1,9 @@
 .selectPlanForm {
   padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -165,12 +169,6 @@
   }
 }
 
-.buttonsContainer {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 16px;
-}
-
 .discount {
   padding-top: 6px;
   margin: 0;
@@ -183,6 +181,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.buttonsContainer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
 }
 
 @media (max-width: 768px) {

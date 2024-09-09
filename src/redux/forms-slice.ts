@@ -35,8 +35,7 @@ const formSlice = createSlice({
       state.selectedPlan = action.payload;
     },
     setAddOns: (state, payload: PayloadAction<AddOnsTypes>) => {
-      state.addOns.addOnsTitles = payload.payload.addOnsTitles;
-      state.addOns.addOnsPrice = payload.payload.addOnsPrice;
+      state.addOns = payload.payload;
     },
   },
 });
