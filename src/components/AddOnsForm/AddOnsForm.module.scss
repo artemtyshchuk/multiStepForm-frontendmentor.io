@@ -1,5 +1,9 @@
 .addOnsForm {
   padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -111,6 +115,7 @@
 }
 
 .buttonsContainer {
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   padding-bottom: 16px;

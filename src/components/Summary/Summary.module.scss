@@ -1,8 +1,9 @@
 .summary {
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .title {
@@ -153,10 +154,49 @@
 }
 
 .buttonsContainer {
+  margin-top: auto;
   display: flex;
   justify-self: flex-end;
   justify-content: space-between;
   padding-bottom: 16px;
+}
+
+.errorNotification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000003d;
+  z-index: 1000;
+}
+
+.errorNotificationContainer {
+  position: fixed;
+  width: auto;
+  top: 11%;
+  left: 33%;
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 25px 40px -20px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.errorTitle {
+  margin: 0;
+  color: rgb(202, 10, 10);
+  font-feature-settings: "liga" off, "clig" off;
+
+  /* Heading */
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 @media (max-width: 576px) {

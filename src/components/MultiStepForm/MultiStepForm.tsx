@@ -2,28 +2,12 @@ import { useAppSelector } from "redux-hooks";
 import { StepsBar } from "../StepsBar";
 import styles from "./MultiStepForm.module.scss";
 import { YourInfoForm } from "components/YourInfoForm";
-import { useEffect, useState } from "react";
 import { SelectPlanForm } from "components/SelectPlanForm";
 import { AddOnsForm } from "components/AddOnsForm";
 import { Summary } from "components/Summary";
 
 export const MultiStepForm = () => {
-  const activeStep = useAppSelector((state) => state.activeStep);
-
-  const [screenSize, setScreenSize] = useState({
-    mobileScreen: window.matchMedia("(max-width: 576px)").matches,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize({
-        mobileScreen: window.matchMedia("(max-width: 576px)").matches,
-      });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const activeStep: number = useAppSelector((state) => state.activeStep);
 
   const renderStepForm = () => {
     switch (activeStep) {
@@ -35,7 +19,7 @@ export const MultiStepForm = () => {
         return <AddOnsForm />;
       case 4:
         return <Summary />;
-      case 5:
+      default:
         return <YourInfoForm />;
     }
   };

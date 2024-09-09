@@ -6,9 +6,7 @@ import { useAppDispatch, useAppSelector } from "redux-hooks";
 import { setActiveStep } from "../../redux/activeStep-slice";
 import { setPersonalInfo } from "../../redux/forms-slice";
 
-interface YourInfoFormProps {}
-
-export const YourInfoForm = ({}: YourInfoFormProps) => {
+export const YourInfoForm = () => {
   const personalInfo = useAppSelector(
     (state) => state.setPersonalData.personalInfo
   );
@@ -31,15 +29,12 @@ export const YourInfoForm = ({}: YourInfoFormProps) => {
   };
 
   return (
-    <div className={styles.yourInfo}>
+    <form className={styles.yourInfo} onSubmit={handleSubmit(onSubmit)}>
       <p className={styles.title}>Personal info</p>
       <p className={styles.subTitle}>
         Please provide your name, email address, and phone number.
       </p>
-      <form
-        className={styles.inputsContainer}
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <div className={styles.inputsContainer}>
         {/* name input  */}
         <div className={styles.nameInputContainer}>
           <div className={styles.inputLabelContainer}>
@@ -76,7 +71,7 @@ export const YourInfoForm = ({}: YourInfoFormProps) => {
             </div>
           </div>
           <input
-            type="text"
+            type="email"
             autoComplete="off"
             className={`${styles.input} ${
               emailInputError && styles.input__error
@@ -108,10 +103,10 @@ export const YourInfoForm = ({}: YourInfoFormProps) => {
             {...register("phone", { required: "This field is required" })}
           />
         </div>
-        <div className={styles.buttonContainer}>
-          <Button button="nextPage" buttonText="Next Step" type="submit" />
-        </div>
-      </form>
-    </div>
+      </div>
+      <div className={styles.buttonContainer}>
+        <Button button="nextPage" buttonText="Next Step" type="submit" />
+      </div>
+    </form>
   );
 };

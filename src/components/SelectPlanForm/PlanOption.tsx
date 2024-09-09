@@ -31,9 +31,7 @@ export const PlanOption = ({
       className={styles.planInput}
       type="radio"
       value={planValue}
-      {...register("plan", {
-        required: "Plan is required",
-      })}
+      {...register("plan")}
     />
     <Icon />
     <div className={styles.planInfoContainer}>

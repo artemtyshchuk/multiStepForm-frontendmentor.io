@@ -15,11 +15,10 @@ export const SelectPlanForm = () => {
     (state) => state.setPersonalData.selectedPlan
   );
 
-  const { register, watch, formState, setValue, handleSubmit } =
-    useForm<SelectPlanTypes>({
-      mode: "onChange",
-      defaultValues: selectedPlan,
-    });
+  const { register, watch, setValue, handleSubmit } = useForm<SelectPlanTypes>({
+    mode: "onChange",
+    defaultValues: selectedPlan,
+  });
 
   const dispatch = useAppDispatch();
   const planWatcher = watch("plan");
@@ -30,8 +29,6 @@ export const SelectPlanForm = () => {
   const activeStep = useAppSelector((state) => state.activeStep);
 
   const isYearly = reduxBilling === "Yearly";
-
-  const planInputError = formState.errors["plan"]?.message;
 
   const handleBillingChange = () => {
     const newBilling = isYearly ? "Monthly" : "Yearly";
@@ -98,9 +95,6 @@ export const SelectPlanForm = () => {
           register={register}
           selectedPlan={planWatcher}
         />
-      </div>
-      <div>
-        {planInputError && <p className={styles.error}>{planInputError}</p>}
       </div>
 
       <div className={styles.planTypeSwitcherContainer}>

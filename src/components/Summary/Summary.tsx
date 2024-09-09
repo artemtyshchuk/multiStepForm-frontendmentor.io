@@ -2,11 +2,14 @@ import { useAppDispatch, useAppSelector } from "redux-hooks";
 import styles from "./Summary.module.scss";
 import { setActiveStep } from "../../redux/activeStep-slice";
 import { Button } from "components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SuccessPage } from "../SuccessPage";
+import { ErrorNotification } from "./ErrorNotification";
 
 export const Summary = () => {
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(true);
+
   const dispatch = useAppDispatch();
 
   const activeStep = useAppSelector((state) => state.activeStep);
@@ -34,6 +37,10 @@ export const Summary = () => {
     dispatch(setActiveStep(activeStep - 1));
   };
 
+  useEffect(() => {
+    console.log("Error state changed:", error);
+  }, [error]);
+
   const monthlySubscription = () => {
     return price + addOnsPrice.reduce((a, c) => a + c, 0);
   };
@@ -42,11 +49,17 @@ export const Summary = () => {
     return price + addOnsPrice.reduce((a, c) => a + c, 0) * 10;
   };
 
-  const handleGlobalSubmit = () => {
-    if (!personalData.email || !personalData.name || !personalData.phone) {
-      dispatch(setActiveStep(1));
+  const handleGlobalSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (personalData.email && personalData.name && personalData.phone) {
+      setSuccess(true);
+    } else {
+      setError(true);
+
+      setTimeout(() => {
+        dispatch(setActiveStep(1));
+      }, 3000);
     }
-    setSuccess(true);
   };
 
   return (
@@ -114,6 +127,7 @@ export const Summary = () => {
             />
             <Button button="nextPage" buttonText="Next Step" type="submit" />
           </div>
+          {error && <ErrorNotification />}
         </form>
       )}
     </div>
