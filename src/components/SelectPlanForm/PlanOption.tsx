@@ -26,7 +26,7 @@ export const PlanOption = ({
     className={`${styles.planContainer} ${
       selectedPlan === planValue && styles.planContainer__active
     }`}
-  >
+   data-testid="plan-option">
     <input
       className={styles.planInput}
       type="radio"

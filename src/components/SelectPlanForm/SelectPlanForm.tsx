@@ -59,7 +59,7 @@ export const SelectPlanForm = () => {
   };
 
   return (
-    <form className={styles.selectPlanForm} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.selectPlanForm} onSubmit={handleSubmit(onSubmit)} data-testid="select-plan-form">
       <p className={styles.title}>Select your plan</p>
       <p className={styles.subTitle}>
         You have the option of monthly or yearly billing.

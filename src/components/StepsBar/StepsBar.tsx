@@ -6,9 +6,7 @@ import { stepData } from "../../data/stepData";
 import { useAppDispatch, useAppSelector } from "redux-hooks";
 import { setActiveStep } from "../../redux/activeStep-slice";
 
-interface StepsBarProps {}
-
-export const StepsBar = ({}: StepsBarProps) => {
+export const StepsBar = () => {
   const [steps] = useState<StepsType[]>(stepData);
 
   const dispatch = useAppDispatch();
@@ -20,7 +18,7 @@ export const StepsBar = ({}: StepsBarProps) => {
   };
 
   return (
-    <div className={styles.stepsBar}>
+    <div className={styles.stepsBar} data-testid="steps-bar">
       {steps.map((step) => (
         <StepComponent
           key={step.id}

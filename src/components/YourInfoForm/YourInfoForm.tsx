@@ -29,7 +29,7 @@ export const YourInfoForm = () => {
   };
 
   return (
-    <form className={styles.yourInfo} onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.yourInfo} onSubmit={handleSubmit(onSubmit)} data-testid="your-info-form">
       <p className={styles.title}>Personal info</p>
       <p className={styles.subTitle}>
         Please provide your name, email address, and phone number.
@@ -43,7 +43,7 @@ export const YourInfoForm = () => {
             </div>
             <div>
               {nameInputError && (
-                <p className={styles.validationTextError}>{nameInputError}</p>
+                <p className={styles.validationTextError} data-testid="errorText">{nameInputError}</p>
               )}
             </div>
           </div>

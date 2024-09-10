@@ -30,7 +30,7 @@ export const StepComponent = (props: StepComponentProps) => {
 
   return (
     <div>
-      <div className={styles.stepContainer} onClick={handleStep}>
+      <div className={styles.stepContainer} onClick={handleStep} data-testid="the-step">
         <div className={styles.stepNumberContainer}>
           <div
             className={`${styles.stepNumberWrapper} ${

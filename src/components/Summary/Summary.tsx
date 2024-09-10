@@ -118,7 +118,7 @@ export const Summary = () => {
             </p>
           </div>
 
-          <div className={styles.buttonsContainer}>
+          <div className={styles.buttonsContainer} data-testid="buttons">
             <Button
               button="backPage"
               buttonText="Go Back"

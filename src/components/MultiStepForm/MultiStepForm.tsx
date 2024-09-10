@@ -25,7 +25,7 @@ export const MultiStepForm = () => {
   };
 
   return (
-    <div className={styles.multiStepForm}>
+    <div className={styles.multiStepForm} data-testid="multi-step-form">
       <div className={styles.stepsBarContainer}>
         <StepsBar />
       </div>

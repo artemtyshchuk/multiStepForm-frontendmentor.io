@@ -7,9 +7,7 @@ import { useForm } from "react-hook-form";
 import { AddOnsTypes } from "types/types";
 import { setAddOns } from "../../redux/forms-slice";
 
-interface AddOnsFormProps {}
-
-export const AddOnsForm = ({}: AddOnsFormProps) => {
+export const AddOnsForm = () => {
   const activeStep = useAppSelector((state) => state.activeStep);
 
   const checkedOptions = useAppSelector(
@@ -32,12 +30,10 @@ export const AddOnsForm = ({}: AddOnsFormProps) => {
       "Customizable profile": 2,
     };
 
-    // Здесь мы собираем правильные цены для каждого выбранного add-on
     const selectedAddOnsPrices = data.addOnsTitles.map(
       (addOn) => addOnsPrices[addOn]
     );
 
-    // Отправляем в хранилище правильные данные с названиями add-ons и их ценами
     dispatch(
       setAddOns({
         addOnsTitles: data.addOnsTitles,
@@ -52,7 +48,11 @@ export const AddOnsForm = ({}: AddOnsFormProps) => {
   };
 
   return (
-    <form className={styles.addOnsForm} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={styles.addOnsForm}
+      onSubmit={handleSubmit(onSubmit)}
+      data-testid="add-ons-form"
+    >
       <p className={styles.title}>Pick add-ons</p>
       <p className={styles.subTitle}>
         Add-ons help enhance your gaming experience.
@@ -80,7 +80,7 @@ export const AddOnsForm = ({}: AddOnsFormProps) => {
           checked={watcher.includes("Customizable profile")}
         />
       </div>
-      <div className={styles.buttonsContainer}>
+      <div className={styles.buttonsContainer} data-testid="buttons">
         <Button
           button="backPage"
           buttonText="Go Back"
